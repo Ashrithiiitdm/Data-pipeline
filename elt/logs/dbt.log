@@ -1,0 +1,66 @@
+[0m21:04:05.363937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d911a71000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d9101827a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d910182740>]}
+
+
+============================== 21:04:05.368572 | cba90d1f-9a8b-4384-ab76-2ce03232d4f3 ==============================
+[0m21:04:05.368572 [info ] [MainThread]: Running with dbt=1.8.4
+[0m21:04:05.368964 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/ash/.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt init', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m21:04:05.373743 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': PosixPath('/home/ash/.dbt')}
+[0m21:04:05.374123 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m21:04:16.474081 [debug] [MainThread]: Starter project path: /home/ash/.local/lib/python3.10/site-packages/dbt/include/starter_project
+[0m21:04:16.477275 [info ] [MainThread]: 
+Your new dbt project "Custom_postgres" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:04:16.478024 [info ] [MainThread]: Setting up your profile.
+[0m21:04:54.508024 [error] [MainThread]: Encountered an error:
+
+[0m21:04:54.519846 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/cli/main.py", line 470, in init
+    results = task.run()
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/task/init.py", line 347, in run
+    self.setup_profile(profile_name)
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/task/init.py", line 263, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/task/init.py", line 180, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/task/init.py", line 164, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "/home/ash/.local/lib/python3.10/site-packages/dbt/task/init.py", line 130, in generate_target_from_input
+    target[key] = click.prompt(
+  File "/home/ash/.local/lib/python3.10/site-packages/click/termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "/home/ash/.local/lib/python3.10/site-packages/click/termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m21:04:54.522278 [debug] [MainThread]: Resource report: {"command_name": "init", "command_wall_clock_time": 49.22713, "process_user_time": 0.759076, "process_kernel_time": 0.035767, "process_mem_max_rss": "89112", "process_in_blocks": "120", "process_out_blocks": "80", "command_success": false}
+[0m21:04:54.523417 [debug] [MainThread]: Command `dbt init` failed at 21:04:54.523200 after 49.23 seconds
+[0m21:04:54.524196 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d911a71000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d911de61a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d911de7700>]}
+[0m21:04:54.524843 [debug] [MainThread]: Flushing usage events
+[0m21:04:59.324158 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cdebcf690c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cdebb67a860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cdebb67a7a0>]}
+
+
+============================== 21:04:59.327419 | 0c70117f-217f-4601-8211-bd406a41a05d ==============================
+[0m21:04:59.327419 [info ] [MainThread]: Running with dbt=1.8.4
+[0m21:04:59.327814 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': '/home/ash/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt init', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m21:05:06.528900 [info ] [MainThread]: A project called Custom_postgres already exists here.
+[0m21:05:06.531117 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 7.23784, "process_user_time": 0.716581, "process_kernel_time": 0.044035, "process_mem_max_rss": "84720", "process_out_blocks": "16", "process_in_blocks": "0"}
+[0m21:05:06.532427 [debug] [MainThread]: Command `dbt init` succeeded at 21:05:06.532198 after 7.24 seconds
+[0m21:05:06.533141 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cdebcf690c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cdebb67ac20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cdebb67aa10>]}
+[0m21:05:06.533825 [debug] [MainThread]: Flushing usage events
