@@ -8,22 +8,22 @@ services:
     networks:
       - elt_network
     environment:
-      POSTGRES_DB: source_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: ${PG_SDB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
     volumes:
       - ./source_db_init/init.sql:/docker-entrypoint-initdb.d/init.sql 
 
   destination_postgres:
-      image: postgres:15
-      ports:
-        - "5435:5432"
-      networks:
-        - elt_network
-      environment:
-        POSTGRES_DB: destination_db
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: secret
+    image: postgres:15
+    ports:
+      - "5435:5432"
+    networks:
+      - elt_network
+    environment:
+      POSTGRES_DB: ${PG_DDB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
   
   elt_script:
     build:
@@ -35,6 +35,14 @@ services:
     depends_on:
       - source_postgres
       - destination_postgres
+    environment:
+      PG_SDB: source_db
+      PG_DDB: destination_db
+      PG_USER: postgres
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_SHOST: source_postgres
+      PG_DHOST: destination_postgres
+  
   dbt:
     image: ghcr.io/dbt-labs/dbt-postgres:1.8.2
     command: 

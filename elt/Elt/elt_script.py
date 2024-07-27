@@ -2,6 +2,7 @@
 
 import subprocess  #I/O control
 import time
+import os           #For env variable access 
 
 #We have to wait until the source_db and destination_db are initialised
 def wait_for_db(host, max_retires = 5, delay_sec = 5):
@@ -32,18 +33,18 @@ print("Starting ELT script...")
 
 #Source configuration
 source_config = {
-    'dbname' : 'source_db',
-    'user' : 'postgres',
-    'password' : 'secret',
-    'host' : 'source_postgres'
+    'dbname' : os.getenv('PG_SDB'),
+    'user' : os.getenv('PG_USER'),
+    'password' : os.getenv('PG_PASSWORD'),
+    'host' : os.getenv('PG_SHOST')
 }
 
 #Destination configuration
 dest_config = {
-    'dbname' : 'destination_db',
-    'user' : 'postgres',
-    'password' : 'secret',
-    'host' : 'destination_postgres'
+    'dbname' : os.getenv('PG_DDB'),
+    'user' : os.getenv('PG_USER'),
+    'password' : os.getenv('PG_PASSWORD'),
+    'host' : os.getenv('PG_DHOST')
 }
 
 #Dump command used to back-up the data
