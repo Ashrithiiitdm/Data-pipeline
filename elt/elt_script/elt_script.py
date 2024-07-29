@@ -5,7 +5,7 @@ import time
 import os           #For env variable access 
 
 #We have to wait until the source_db and destination_db are initialised
-def wait_for_db(host, max_retires = 5, delay_sec = 5):
+def wait_for_db(host, max_retires = 10, delay_sec = 5):
     retries = 0
     while retries < max_retires:
         try:
@@ -27,6 +27,8 @@ def wait_for_db(host, max_retires = 5, delay_sec = 5):
 #If some error continues to persist, exit from the process
 if not wait_for_db(host = "source_postgres"):
     exit(1)
+
+
 
 #Just in case for debugging
 print("Starting ELT script...")

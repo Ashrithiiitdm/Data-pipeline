@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
   source_postgres:
@@ -24,10 +24,11 @@ services:
       POSTGRES_DB: ${PG_DDB}
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
+    
   
   elt_script:
     build:
-      context: ./Elt
+      context: ./elt_script
       dockerfile: Dockerfile
     command: ["python", "elt_script.py"]
     networks:
@@ -59,7 +60,8 @@ services:
       - ./Custom_postgres:/dbt
       - ~/.dbt:/root
     depends_on:
-      - elt_script
+      elt_script:
+        condition: service_completed_successfully
     environment:
       DBT_PROFILE: default
       DBT_TARGET: dev
