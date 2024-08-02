@@ -1,14 +1,11 @@
+#DockerFile to execute the workflow 
+
 FROM postgres:16 as pg_base
 
 FROM python:3.8-slim
 
-RUN apt-get update && apt-get install -y postgresql-client cron
+RUN apt-get update && apt-get install -y postgresql-client
 
-COPY start.sh /app/start.sh
-COPY elt_script.py .
-
-WORKDIR /app
-
-RUN echo "0.3 * * * python /app/elt_script.py" | crontab - 
+COPY elt_script.py . 
 
 CMD ["python","elt_script.py"]

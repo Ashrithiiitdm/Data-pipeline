@@ -1,5 +1,6 @@
 -- Macros are used to group the reusable queries and just use them wherever we want.
 -- For example here we created a macro named generate_film_ratings(), we can re-use this query anywhere without writing the SQl code again.
+
 {% macro generate_film_ratings() %}
 -- Subqueries which can be referred anytime using with clause
 
