@@ -34,5 +34,5 @@ Make sure that you have installed Docker desktop or Docker compose.
 3. **After running this you can check the database by:**
 
    ```bash
-   docker exec -it <name_of_destinationdb's_container> psql -U postgres
+   docker exec -it <name_of_destinationdb_container> psql -U postgres
     ```
