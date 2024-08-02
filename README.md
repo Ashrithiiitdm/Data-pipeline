@@ -9,13 +9,13 @@ Transform - The database can be transformed accordingly to our use.<br>
 
 ## File structure
 
-1. `source_db_init/init.sql`: This SQL script initializes the source database. In this case, it creates the tables users, films, film_category, actors and film_actors.
-2. `elt_script/elt_script.py`: This Python script performs the ELT process. It waits for the source database and then dumps into a SQL file and loads the data into the destination database.
-3. `elt_script/Dockerfile`: This file installs the PostgreSQL cilent, sets up the Python environment and copies the elt script and sets it as the default command.
-4. `docker-compose.yaml`: This file has the configuration to create and manage multiple containers and has the following services:
-  - `source_postgres`: Source database
-  - `destination_postgres`: Destination database
-  - `elt_script`: The service that runs the python script.
+1. **source_db_init/init.sql**: This SQL script initializes the source database. In this case, it creates the tables users, films, film_category, actors and film_actors.
+2. **elt_script/elt_script.py**: This Python script performs the ELT process. It waits for the source database and then dumps into a SQL file and loads the data into the destination database.
+3. **elt_script/Dockerfile**: This file installs the PostgreSQL cilent, sets up the Python environment and copies the elt script and sets it as the default command.
+4. **docker-compose.yaml**: This file has the configuration to create and manage multiple containers and has the following services:
+    - `source_postgres`: Source database
+    - `destination_postgres`: Destination database
+    - `elt_script`: The service that runs the python script.
 
 ## Setting up
 Make sure that you have installed Docker desktop or Docker compose.
