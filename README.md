@@ -16,3 +16,23 @@ Transform - The database can be transformed accordingly to our use.<br>
   - `source_postgres`: Source database
   - `destination_postgres`: Destination database
   - `elt_script`: The service that runs the python script.
+
+## Setting up
+Make sure that you have installed Docker desktop or Docker compose.
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Ashrithiiitdm/Data-pipeline.git
+   cd Data-pipeline/elt
+   ```
+2. **Running the containers:**
+
+   ```bash
+    docker compose up
+   ```
+3. **After running this you can check the database by:**
+
+   ```bash
+   docker exec -it <name_of_destinationdb's_container> psql -U postgres
+    ```
